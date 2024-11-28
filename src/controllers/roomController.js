@@ -17,6 +17,10 @@ module.exports = {
   },
 
   create: async (req, res) => {
+    if (req.file) {
+      req.body.image = req.file.filename;
+    }
+
     const data = await Room.create(req.body);
 
     res.status(201).send({

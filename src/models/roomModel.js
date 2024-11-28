@@ -8,10 +8,10 @@ const roomSchema = new Schema(
     roomNumber: {
       type: Number,
       required: true,
+      uniuqe: true,
     },
     image: {
       type: String,
-      required: true,
     },
     bedType: {
       type: String,

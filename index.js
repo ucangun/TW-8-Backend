@@ -42,6 +42,9 @@ app.all("*", (req, res, next) => {
   throw new Error(`Can't find ${req.originalUrl} on this server!`, 404);
 });
 
+// StaticFile:
+app.use("/images", express.static("./uploads"));
+
 /****************************************************/
 
 // errorHandler:

@@ -2,6 +2,7 @@
             | FULLSTACK TEAM | Hotel Api|
 -------------------------------------------------------- */
 const router = require("express").Router();
+const upload = require("../helpers/upload");
 /* ----------------------------------------------------- */
 
 const {
@@ -14,7 +15,7 @@ const {
 
 // URL: /rooms
 router.get("/", list);
-router.post("/", create);
+router.post("/", upload.single("image"), create);
 
 router.get("/:id", read);
 router.put("/:id", update);
