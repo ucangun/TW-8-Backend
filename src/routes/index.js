@@ -10,7 +10,7 @@ const router = require("express").Router();
 // router.use("/auth", require("./authRouter"));
 
 // Reservations:
-// router.use("/reservations", require("./reservationsRouter"));
+router.use("/reservations", require("./reservationsRouter"));
 
 // Rooms:
 // router.use("/rooms", require("./roomsRouter"));
