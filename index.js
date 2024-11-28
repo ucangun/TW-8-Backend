@@ -27,6 +27,16 @@ connectDB();
 // Parses JSON request bodies.
 app.use(express.json());
 
+// findSearchSortPage / res.getModelList:
+app.use(require("./src/middlewares/queryHandler"));
+
+/****************************************************/
+// Routes
+
+app.all("*", (req, res, next) => {
+  throw new Error(`Can't find ${req.originalUrl} on this server!`, 404);
+});
+
 /****************************************************/
 
 // errorHandler:
