@@ -27,6 +27,9 @@ connectDB();
 // Parses JSON request bodies.
 app.use(express.json());
 
+// Check Authentication:
+app.use(require("./src/middlewares/authentication"));
+
 // findSearchSortPage / res.getModelList:
 app.use(require("./src/middlewares/queryHandler"));
 

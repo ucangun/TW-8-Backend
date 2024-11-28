@@ -1,13 +1,13 @@
 "use strict";
 /* -------------------------------------------------------
-    NODEJS EXPRESS | Flight API
+    NODEJS EXPRESS | Hotel API
 
 # npm i jsonwebtoken
 ------------------------------------------------------- */
 
 const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
-const User = require("../models/user");
+const User = require("../models/userModel");
 
 module.exports = async (req, res, next) => {
   req.user = null;
