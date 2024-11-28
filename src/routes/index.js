@@ -13,7 +13,7 @@ const router = require("express").Router();
 router.use("/reservations", require("./reservationsRouter"));
 
 // Rooms:
-// router.use("/rooms", require("./roomsRouter"));
+router.use("/rooms", require("./roomsRouter"));
 
 /* ------------------------------------------------------- */
 module.exports = router;

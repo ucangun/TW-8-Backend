@@ -1,7 +1,5 @@
 /*****************************************************
-                    EXPRESS.JS 
-#  npm i validator                     
-#  npm i bcrypt
+                    Hotel Api
 /****************************************************/
 const mongoose = require("mongoose");
 
