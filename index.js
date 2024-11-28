@@ -43,7 +43,7 @@ app.all("*", (req, res, next) => {
 });
 
 // StaticFile:
-app.use("/images", express.static("./uploads"));
+// app.use("/images", express.static("./uploads"));
 
 /****************************************************/
 
