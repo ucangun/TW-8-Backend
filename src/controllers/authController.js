@@ -5,9 +5,19 @@
 
 const jwt = require("jsonwebtoken");
 const User = require("../models/userModel");
-// const Blacklist = require("../models/blacklistModel");
+const Blacklist = require("../models/blacklistModel");
 const sendEmail = require("../helpers/sendEmail");
 const { promisify } = require("util");
+
+const blacklistToken = async (token) => {
+  const decoded = jwt.decode(token);
+  const expTimestamp = decoded.exp * 1000;
+
+  await Blacklist.create({
+    token: token,
+    expiresAt: new Date(expTimestamp),
+  });
+};
 
 exports.signup = async (req, res) => {
   const newUser = await User.create({
@@ -113,5 +123,24 @@ exports.login = async (req, res) => {
     data: {
       user,
     },
+  });
+};
+
+exports.logout = async (req, res) => {
+  let token;
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith("Token")
+  ) {
+    token = req.headers.authorization.split(" ")[1];
+  }
+
+  if (token) {
+    await blacklistToken(token);
+  }
+
+  res.status(200).json({
+    status: "success",
+    message: "Logged out successfully!",
   });
 };
