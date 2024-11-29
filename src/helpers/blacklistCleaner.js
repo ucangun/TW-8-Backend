@@ -1,7 +1,6 @@
 "use strict";
 /* -------------------------------------------------------
-    NODEJS EXPRESS | Hotel API
-
+                NODEJS EXPRESS | Hotel API
 # npm i node-cron
 ------------------------------------------------------- */
 
@@ -11,11 +10,13 @@ const Blacklist = require("../models/blacklistModel");
 // Function to clean expired tokens
 const cleanExpiredTokens = async () => {
   const now = new Date();
-  const result = await Blacklist.deleteMany({ expiresAt: { $lte: now } });
-  if (result.deletedCount > 0) {
-    console.log(
-      `Expired tokens cleaned from blacklist. Count: ${result.deletedCount}`
-    );
+  const { deletedCount } = await Blacklist.deleteMany({
+    expiresAt: { $lte: now },
+  });
+
+  // Log only if tokens were deleted
+  if (deletedCount) {
+    console.log(`Cleaned ${deletedCount} expired tokens from the blacklist.`);
   }
 };
 
