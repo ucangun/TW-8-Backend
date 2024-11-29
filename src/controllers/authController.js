@@ -105,7 +105,7 @@ exports.login = async (req, res) => {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
 
-  user.password = undefined;
+  // user.password = undefined;
 
   res.status(200).json({
     status: "success",
