@@ -13,11 +13,11 @@ const {
 
 // URL: /auth
 
-// router.post("/signup", signup);
-// router.post("/login", login);
+router.post("/signup", signup);
+router.post("/login", login);
 // router.post("/logout", logout);
 
-// router.get("/verify-email", verifyEmail);
+router.get("/verifyEmail", verifyEmail);
 
 /* ------------------------------------------------------ */
 module.exports = router;

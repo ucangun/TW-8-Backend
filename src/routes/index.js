@@ -7,7 +7,7 @@ const router = require("express").Router();
 //ROUTER INDEX:
 
 // Auth:
-// router.use("/auth", require("./authRouter"));
+router.use("/auth", require("./authRouter"));
 
 // Reservations:
 router.use("/reservations", require("./reservationsRouter"));

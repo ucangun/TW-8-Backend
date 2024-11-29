@@ -1,5 +1,3 @@
-# NODE_ENV setting
-NODE_ENV=development
 
 # Server Port
 PORT=8000
